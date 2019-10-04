@@ -35,5 +35,12 @@ Route::get('/sharePer','CategoryController@sharePer')->name('category.sharePer')
 Route::resource('category','CategoryController');
 Route::resource('user','UserController');
 Auth::routes();
-
+Route::get('/run',function(){
+    $role = \App\Role::where('name','super_admin')->first();
+    $permission = \App\Permission::all();
+    $role->attachPermissions($permission);
+});
+Route::get('check/{id}','CategoryController@checkPer')->name('checkPer');
+Route::get('/postlist','MiddleLaratrust@redirectToPostList')->name('postlist');
+Route::get('/postlist2','MiddleLaratrust@testMiddle')->name('postlist2');
 Route::get('/home', 'HomeController@index')->name('home');

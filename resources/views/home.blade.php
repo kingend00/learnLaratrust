@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -21,4 +22,16 @@
         </div>
     </div>
 </div>
+<form action="">
+    <input type="text" name="check" id="check" value = "{{old('check') }}">
+    <button id="btn" type="button">Click</button>
+    <a href="/home1">Go to home</a>
+</form>
+<script>
+    $(document).ready(function(){
+        $('#btn').click(function(){
+            $('#check').val('hihi');
+        });
+    });
+</script>
 @endsection

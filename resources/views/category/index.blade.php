@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+@role('super_admin')
+    <p>This is roles of Super Admin</p>
+@endrole
+@role('user')
+    <p>This is roles of User</p>
+@endrole
 	<table border="1">
 		<thead>
 			<th>Title</th>

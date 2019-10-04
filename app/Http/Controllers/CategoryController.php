@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Category;
+use App\Category;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
@@ -41,5 +41,14 @@ class CategoryController extends Controller
     public function formAdd()
     {
             return view('category.add');
+    }
+    public function checkPer($id)
+    {
+        $category = Category::findOrFail($id);
+        //$user = User::findOrFail(Auth::user()->id);
+        if(Auth::user()->owns($category))
+            return "success";
+        else
+            return "false";
     }
 }

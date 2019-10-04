@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if(Laratrust::canAndOwns('destroy-post', $category))
+@if(Auth::user()->owns($category))
 	<h2>Can destroy this post</h2>
 @endif
 <form action="{{route('category.update',$category->category_id)}}" method="POST">
